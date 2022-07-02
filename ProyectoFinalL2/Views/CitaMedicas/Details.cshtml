@@ -1,0 +1,55 @@
+﻿@model ProyectoFinalL2.Models.CitaMedica
+
+@{
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+}
+
+<h2 style="color:white">Detalles</h2>
+
+<div>
+    <h4>CitaMedica</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Mascotas.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mascotas.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Veterinarios.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Veterinarios.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaReserva)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaReserva)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hora)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CitaMedicaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,56 @@
+﻿@model ProyectoFinalL2.Models.Veterinario
+
+@{
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+}
+
+<h2 style="color:white">Detalles</h2>
+
+<div>
+    <h4>Veterinario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VeterinarioID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

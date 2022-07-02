@@ -1,0 +1,84 @@
+﻿@*@model IEnumerable<ProyectoFinalL2.Models.Veterinario>*@
+@model PagedList.IPagedList<ProyectoFinalL2.Models.Veterinario>
+@using PagedList.Mvc;
+@using PagedList;
+
+@{
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+}
+
+<h2 style="color:white">Index</h2>
+
+
+
+@using (Html.BeginForm("Index", "Veterinarios", FormMethod.Get))
+{
+    <p>
+        Buscar por Edad: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Buscar" />
+    </p>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Telefono)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.VeterinarioID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.VeterinarioID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.VeterinarioID })
+            </td>
+        </tr>
+    }
+
+</table>
+<br>
+<br>
+<br>
+
+
+<p>
+    <a href="~/Veterinarios/Create" class="primary-btn header-btn text-uppercase">Crear uno nuevo</a>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

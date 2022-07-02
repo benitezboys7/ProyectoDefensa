@@ -1,0 +1,53 @@
+﻿<header id="header" id="home">
+
+    <div class="container main-menu">
+
+
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="~/Home/Index"><img src="~/Content/img/logo.png" alt="" title="" /></a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    @*<li class="menu-active"><a href="~/Views/Home/">Home</a></li>*@
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li><a href="~/Home/About">Sobre Nosotros</a></li>
+                    <li><a href="~/Home/Cats">Gatos</a></li>
+                    <li><a href="~/Home/Dogs">Cachorros</a></li>
+                    <li class="menu-has-children">
+
+                        <a style="color:white">Servicios</a>
+                        <ul>
+                            <li><a href="~/Clientes/Index">Clientes</a></li>
+                            <li><a href="~/Mascotas/Index">Mascotas</a></li>
+                            <li><a href="~/Citas/Index">Citas</a></li>
+                            <li><a href="~/Voluntarios/Index">Voluntarios</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-has-children">
+
+                        <a style="color:white">Veterinaria</a>
+                        <ul>
+                            <li><a href="~/Veterinarios/Index">Veterinarios</a></li>
+                            <li><a href="~/CitaMedicas/Index">Agendar Cita para mascotas</a></li>
+                          
+                        </ul>
+                    </li>
+                    <li><a href="~/Home/Contact">Contact</a></li>
+
+
+                </ul>
+
+            </nav><!-- #nav-menu-container -->
+
+
+        </div>
+        <br>
+        @*<h9 style="color:white">INICIAR SESION</h9>*@
+      
+       @Html.Partial("_LoginPartial")
+         
+      
+    </div>
+    
+</header><!-- #header -->

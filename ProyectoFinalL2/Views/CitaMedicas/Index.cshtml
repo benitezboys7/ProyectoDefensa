@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ProyectoFinalL2.Models.CitaMedica>
+
+@{
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+}
+
+<h2 style="color:white">Inicio</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Mascotas.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Veterinarios.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaReserva)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hora)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mascotas.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Veterinarios.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaReserva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hora)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CitaMedicaID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CitaMedicaID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CitaMedicaID })
+            </td>
+        </tr>
+    }
+
+</table>
+<br>
+<br>
+<br>
+<p>
+    <a href="~/CitaMedicas/Create" class="primary-btn header-btn text-uppercase">Crear uno nuevo</a>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>

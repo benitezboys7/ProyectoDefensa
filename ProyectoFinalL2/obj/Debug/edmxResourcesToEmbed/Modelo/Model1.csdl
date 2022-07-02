@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MascotasDB5Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Citas">
+    <Key>
+      <PropertyRef Name="CitasID" />
+    </Key>
+    <Property Name="CitasID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClienteID" Type="Int32" Nullable="false" />
+    <Property Name="MascotasID" Type="Int32" Nullable="false" />
+    <Property Name="FechaReserva" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_dbo_Citas_dbo_Clientes_ClienteID" FromRole="Citas" ToRole="Clientes" />
+    <NavigationProperty Name="Mascotas" Relationship="Self.FK_dbo_Citas_dbo_Mascotas_MascotasID" FromRole="Citas" ToRole="Mascotas" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="ClienteID" />
+    </Key>
+    <Property Name="ClienteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Edad" Type="Int32" Nullable="false" />
+    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="Telefono" Type="Int32" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Citas" Relationship="Self.FK_dbo_Citas_dbo_Clientes_ClienteID" FromRole="Clientes" ToRole="Citas" />
+  </EntityType>
+  <EntityType Name="Mascotas">
+    <Key>
+      <PropertyRef Name="MascotasID" />
+    </Key>
+    <Property Name="MascotasID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Edad" Type="Int32" Nullable="false" />
+    <Property Name="Sexo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Vacunas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Pedigri" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Citas" Relationship="Self.FK_dbo_Citas_dbo_Mascotas_MascotasID" FromRole="Mascotas" ToRole="Citas" />
+    <NavigationProperty Name="Voluntarios" Relationship="Self.FK_dbo_Voluntarios_dbo_Mascotas_MascotasID" FromRole="Mascotas" ToRole="Voluntarios" />
+  </EntityType>
+  <EntityType Name="Voluntarios">
+    <Key>
+      <PropertyRef Name="VoluntarioID" />
+    </Key>
+    <Property Name="VoluntarioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CedulaV" Type="Int32" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MascotasID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Mascotas" Relationship="Self.FK_dbo_Voluntarios_dbo_Mascotas_MascotasID" FromRole="Voluntarios" ToRole="Mascotas" />
+  </EntityType>
+  <Association Name="FK_dbo_Citas_dbo_Clientes_ClienteID">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Citas" Type="Self.Citas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="ClienteID" />
+      </Principal>
+      <Dependent Role="Citas">
+        <PropertyRef Name="ClienteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Citas_dbo_Mascotas_MascotasID">
+    <End Role="Mascotas" Type="Self.Mascotas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Citas" Type="Self.Citas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mascotas">
+        <PropertyRef Name="MascotasID" />
+      </Principal>
+      <Dependent Role="Citas">
+        <PropertyRef Name="MascotasID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Voluntarios_dbo_Mascotas_MascotasID">
+    <End Role="Mascotas" Type="Self.Mascotas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Voluntarios" Type="Self.Voluntarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mascotas">
+        <PropertyRef Name="MascotasID" />
+      </Principal>
+      <Dependent Role="Voluntarios">
+        <PropertyRef Name="MascotasID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MascotasDB5Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Citas" EntityType="Self.Citas" />
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+    <EntitySet Name="Mascotas" EntityType="Self.Mascotas" />
+    <EntitySet Name="Voluntarios" EntityType="Self.Voluntarios" />
+    <AssociationSet Name="FK_dbo_Citas_dbo_Clientes_ClienteID" Association="Self.FK_dbo_Citas_dbo_Clientes_ClienteID">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Citas" EntitySet="Citas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Citas_dbo_Mascotas_MascotasID" Association="Self.FK_dbo_Citas_dbo_Mascotas_MascotasID">
+      <End Role="Mascotas" EntitySet="Mascotas" />
+      <End Role="Citas" EntitySet="Citas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Voluntarios_dbo_Mascotas_MascotasID" Association="Self.FK_dbo_Voluntarios_dbo_Mascotas_MascotasID">
+      <End Role="Mascotas" EntitySet="Mascotas" />
+      <End Role="Voluntarios" EntitySet="Voluntarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,56 @@
+﻿@model ProyectoFinalL2.Models.Voluntario
+
+@{
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Voluntario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Mascotas.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mascotas.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CedulaV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CedulaV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Correo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VoluntarioID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

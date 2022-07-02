@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MascotasDB5ModelStoreContainer" CdmEntityContainer="MascotasDB5Entities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="MascotasDB5Model.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Citas">
+      <EntityTypeMapping TypeName="MascotasDB5Model.Citas">
+        <MappingFragment StoreEntitySet="Citas">
+          <ScalarProperty Name="CitasID" ColumnName="CitasID" />
+          <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+          <ScalarProperty Name="MascotasID" ColumnName="MascotasID" />
+          <ScalarProperty Name="FechaReserva" ColumnName="FechaReserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="MascotasDB5Model.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mascotas">
+      <EntityTypeMapping TypeName="MascotasDB5Model.Mascotas">
+        <MappingFragment StoreEntitySet="Mascotas">
+          <ScalarProperty Name="MascotasID" ColumnName="MascotasID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Vacunas" ColumnName="Vacunas" />
+          <ScalarProperty Name="Pedigri" ColumnName="Pedigri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Voluntarios">
+      <EntityTypeMapping TypeName="MascotasDB5Model.Voluntarios">
+        <MappingFragment StoreEntitySet="Voluntarios">
+          <ScalarProperty Name="VoluntarioID" ColumnName="VoluntarioID" />
+          <ScalarProperty Name="NombreV" ColumnName="NombreV" />
+          <ScalarProperty Name="CedulaV" ColumnName="CedulaV" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="MascotasID" ColumnName="MascotasID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

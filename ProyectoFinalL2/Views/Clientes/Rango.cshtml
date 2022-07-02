@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ProyectoFinalL2.Models.Mascotas>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<h2 style="color:white">RANGO ENTRE 150 Y 300</h2>
+<table class="table">
+    <tr>
+        <br>
+        <br>
+        <br>
+        <br>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tamano)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tamano)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MascotasID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MascotasID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MascotasID })
+            </td>
+        </tr>
+
+
+    }
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+</table>

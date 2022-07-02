@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProyectoFinalL2.Models.Voluntario>
+
+@{
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  
+}
+
+<h2 style="color:white">VOLUNTARIOS</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Mascotas.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CedulaV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Correo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mascotas.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CedulaV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.VoluntarioID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.VoluntarioID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.VoluntarioID })
+            </td>
+        </tr>
+    }
+
+</table>
+<br>
+<br>
+<br>
+<p>
+    <a href="~/Voluntarios/Create" class="primary-btn header-btn text-uppercase">Crear uno nuevo</a>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>

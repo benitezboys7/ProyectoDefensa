@@ -1,0 +1,48 @@
+﻿@model ProyectoFinalL2.Models.Citas
+
+@{
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Citas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mascotas.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mascotas.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaReserva)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaReserva)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CitasID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
